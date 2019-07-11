@@ -1,25 +1,26 @@
 package ru.skillbranch.devintensive.utils
 
 object Utils {
- fun parseFullName(fullName:String?):Pair<String?,String?> {
-     //TO DO FIX ME
-     val parts: List<String>? = fullName?.split(" ")
+    fun parseFullName(fullName: String?): Pair<String?, String?> {
+        //TO DO FIX ME
+        if (fullName != null && fullName.isNotBlank()) {
+            val parts: List<String>? = fullName?.split(" ")
 
-         val firstName = parts?.getOrNull(0)
-         val lastName = parts?.getOrNull(1)
-         return when {
-             firstName == "" -> Pair( null, lastName)
-             lastName == "" -> Pair(firstName, null)
-         //    firstName == null -> Pair( null, null)
-            // lastName == " " -> Pair(firstName, null)
-           //  parts == null -> Pair( null, null)
-            // firstName == "" |  lastName == "" -> Pair( null, null)
-             // (parts == "") & (lastName == "") -> Pair("", "")
-             else -> Pair(firstName, lastName)
-         }
-
-
- }
+            val firstName = parts?.getOrNull(0)
+            val lastName = parts?.getOrNull(1)
+            return when {
+                firstName == "" -> Pair(null, lastName)
+                lastName == "" -> Pair(firstName, null)
+                //    firstName == null -> Pair( null, null)
+                // lastName == " " -> Pair(firstName, null)
+                //  parts == null -> Pair( null, null)
+                // firstName == "" |  lastName == "" -> Pair( null, null)
+                // (parts == "") & (lastName == "") -> Pair("", "")
+                else -> Pair(firstName, lastName)
+            }
+        } else return Pair(null,null)
+    }
+}
        //1  val parts: List<String>? = fullName?.split(" ")
 
         //1 val firstName = parts?.getOrNull(0)
@@ -42,4 +43,3 @@ object Utils {
     //fun toInitials(firstName: String?, lastName: String?): String {
     //To DO
   //  }
-}
