@@ -15,7 +15,7 @@ object Utils {
                 // lastName == " " -> Pair(firstName, null)
                 //  parts == null -> Pair( null, null)
                 // firstName == "" |  lastName == "" -> Pair( null, null)
-                // (parts == "") & (lastName == "") -> Pair("", "")
+                // (parts == "") & (lastName == "") -> Pair("", "")..
                 else -> Pair(firstName, lastName)
             }
         } else return Pair(null,null)
